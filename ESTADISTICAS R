@@ -1,3 +1,4 @@
+#PARTE 1  
 ##ESTADISTICA DESCRIPTIVA R
 #1 SUMARIO ALGUNAS DESCRIPTIVAS (summary)
 #2 MEDIA (mean)
@@ -7,6 +8,9 @@
 #6 DESVIACION ESTANDAR (sd)
 #7 VARIANZA (var)
 
+##PARTE 2
+#CORRELACION Y REGRESION LINEAL SIMPLE
+
 #LIMPIANDO AREA DE TRABAJO
 rm(list =ls())
 #Para leer tabla de excel
@@ -14,7 +18,7 @@ rm(list =ls())
 library(readxl)
 
 #Traemos la tabla con el script,declaramos como dataq
-dataq <-read_excel("ARCHIVO.xlsx")
+dataq <-read_excel("cuantitativa.xlsx")
 
 #Para ver la tabla se puede usar view()
 View(dataq)
@@ -29,6 +33,9 @@ summary(dataq)
 genotipo <-as.factor(GROUP)
 genotipo
 summary(genotipo)
+
+#Se puede trazar una grafica
+plot(genotipo)
 
 #2 MEDIA (mean)
 #Calculo por variable de la tabla ejemplo W (peso vivo)
@@ -103,3 +110,28 @@ var(genotipo1)
 
 table(genotipo)
 plot(genotipo)
+
+##PARTE 2
+#CORRELACION Y REGRESION LINEAL SIMPLE
+#primero generamos grafico W vs CC ejemplo
+plot(dataq$W~dataq$CC)
+
+#Calculamos el coeficiente de correlacion de W,CC; W,HI; W,PL
+cor.test(dataq$W, dataq$CC)
+cor.test(dataq$W, dataq$HI)
+cor.test(dataq$W, dataq$PL)
+
+#Sobre la base de p<0.05 y Corr<0.60 calculamos la regresion
+
+#Declaramos el modelo y variables a calcular
+modelo<- lm(dataq$W~dataq$HI)
+
+#Generamos analisis de varianza con significancias
+summary(modelo)
+
+#generamos coeficientes 
+modelo$coefficients
+
+#Graficamos con linea de tendencia 
+plot(dataq$W~dataq$HI)
+abline(modelo,col="red")
