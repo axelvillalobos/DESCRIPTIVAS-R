@@ -14,7 +14,7 @@ rm(list =ls())
 library(readxl)
 
 #Traemos la tabla con el script,declaramos como dataq
-dataq <-read_excel("cuantitativa.xlsx")
+dataq <-read_excel("ARCHIVO.xlsx")
 
 #Para ver la tabla se puede usar view()
 View(dataq)
@@ -90,3 +90,16 @@ sd(dataq$PL)
 #Por genotipo
 genotipo1<-W[which(GROUP==1)]
 sd(genotipo1)
+
+#7 VARIANZA (var)
+var(dataq$W)
+var(dataq$CC)
+var(dataq$HI)
+var(dataq$PL)
+
+#Por genotipo
+genotipo1<-W[which(GROUP==1)]
+var(genotipo1)
+
+table(genotipo)
+plot(genotipo)
