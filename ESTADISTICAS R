@@ -1,0 +1,92 @@
+##ESTADISTICA DESCRIPTIVA R
+#1 SUMARIO ALGUNAS DESCRIPTIVAS (summary)
+#2 MEDIA (mean)
+#3 MEDIANA (median)
+#4 MODA(paquete modeest)
+#5 RANGO (range)
+#6 DESVIACION ESTANDAR (sd)
+#7 VARIANZA (var)
+
+#LIMPIANDO AREA DE TRABAJO
+rm(list =ls())
+#Para leer tabla de excel
+#llamamos paquete read excel
+library(readxl)
+
+#Traemos la tabla con el script,declaramos como dataq
+dataq <-read_excel("cuantitativa.xlsx")
+
+#Para ver la tabla se puede usar view()
+View(dataq)
+
+#Leer los nombres de las columnas como variables
+attach(dataq)
+
+##1 SUMARIO ALGUNAS DESCRIPTIVAS (summary)
+summary(dataq)
+
+#ver por genotipo
+genotipo <-as.factor(GROUP)
+genotipo
+summary(genotipo)
+
+#2 MEDIA (mean)
+#Calculo por variable de la tabla ejemplo W (peso vivo)
+mean(dataq$W)
+
+#Calculo de la media por genotipo 1, 2 y 3
+
+genotipo1<-W[which(GROUP==1)]
+
+mean(genotipo1)
+
+#3 MEDIANA (median) todas las variables
+median(dataq$W)
+median(dataq$CC)
+median(dataq$HI)
+median(dataq$PL)
+
+#Por genotipo
+genotipo1<-W[which(GROUP==1)]
+
+median(genotipo1)
+
+#4 MODA(paquete modeest)
+install.packages(c("modeest","raster"))
+library(modeest) #moda
+library(raster)#quantiles, cv
+
+mfv(dataq$W)
+mfv(dataq$CC)
+mfv(dataq$HI)
+mfv(dataq$PL)
+
+#Por genotipo
+genotipo1<-W[which(GROUP==1)]
+mfv(genotipo1)
+
+genotipo2<-W[which(GROUP==2)]
+mfv(genotipo2)
+
+genotipo3<-W[which(GROUP==3)]
+mfv(genotipo1)
+
+#5 RANGO (range)
+range(dataq$W)
+range(dataq$CC)
+range(dataq$HI)
+range(dataq$PL)
+
+#Por genotipo
+genotipo1<-W[which(GROUP==1)]
+range(genotipo1)
+
+#6 DESVIACION ESTANDAR (sd)
+sd(dataq$W)
+sd(dataq$CC)
+sd(dataq$HI)
+sd(dataq$PL)
+
+#Por genotipo
+genotipo1<-W[which(GROUP==1)]
+sd(genotipo1)
