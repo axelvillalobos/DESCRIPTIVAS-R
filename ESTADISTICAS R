@@ -29,7 +29,12 @@ attach(dataq)
 ##1 SUMARIO ALGUNAS DESCRIPTIVAS (summary)
 summary(dataq)
 
-#ver por genotipo
+#EXPORTAR TABLA
+sumario <- summary(dataq)
+library(openxlsx)
+write.xlsx(sumario,"Documents/CARPETA DE R/sumario.xlsx")#ver por genotipo
+
+#CALCULO POR GENOTIPO
 genotipo <-as.factor(GROUP)
 genotipo
 summary(genotipo)
