@@ -1,12 +1,14 @@
 # DESCRIPTIVAS-R
-SCRIPTS PARA CALCULAR DATOS DE ESTADISTICAS DESCRIPTIVAS
-SUMMARY
-MEDIA
-MEDIANA
-MODA 
-RANGO
-DESVIACION ESTANDAR
-VARIANZA
-COEFICIENTE DE VARIACION
-CORRELACION
-REGRESION
+Scripts Para Calcular Datos De Estadisticas Descriptivas
+summary
+media
+mediana
+moda 
+rango
+desviacion estandar
+varianza
+coeficiente de variacion
+correlacion
+regresion
+
+
