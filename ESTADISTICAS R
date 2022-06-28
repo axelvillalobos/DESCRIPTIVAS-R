@@ -7,10 +7,13 @@
 #5 RANGO (range)
 #6 DESVIACION ESTANDAR (sd)
 #7 VARIANZA (var)
-
 ##PARTE 2
 #CORRELACION Y REGRESION LINEAL SIMPLE
 
+##ESTABLECEMOS DIRECTORIO DE TRABAJO
+
+setwd("~/Documents/CARPETAR") #PARA MAC OS
+setwd("D:/1AXEL/2VETERINARIA/TRABAJO_R") #PARA AMBIENTE MICROSOFT
 #LIMPIANDO AREA DE TRABAJO
 rm(list =ls())
 #Para leer tabla de excel
@@ -18,7 +21,9 @@ rm(list =ls())
 library(readxl)
 
 #Traemos la tabla con el script,declaramos como dataq
-dataq <-read_excel("cuantitativa.xlsx")
+
+dataq <-read_excel("cuantitativa.xlsx") #PARA AMBIENTE WINDOWS
+dataq <-read_excel("~/Documents/CARPETAR/cuantitativa.xlsx")#PARA MAC OS
 
 #Para ver la tabla se puede usar view()
 View(dataq)
